@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная</title>
+    <link rel="stylesheet" href="{% static "css/styles.css" %}">
+</head>
+<body>
+{% for nav in navigation %}
+
+<header>
+    <div class="profession">{{ nav.title|safe }}</div>
+    <img class="logotype" src="{% static 'images/logotip.png' %}">
+</header>
+<main>
+    <div class="body">
+        <div class="navigation">
+            <div class="profession" style="left: -120px; color: #E8A87C; font-size: 25px">{{ nav.title|safe }}</div>
+            <img class="logotype" style="top:55px; left: 85px" src="{{ nav.logo_field.url }}">
+            <nav>
+                <ul>
+                    <li><a id="page_navigate" href="/">{{ nav.first_menu }}</a></li>
+                    <li><a href={% url 'demend' %}>{{ nav.second_menu }}</a></li>
+                    <li><a href={% url 'geography' %}>{{ nav.thierd_menu }}</a></li>
+                    <li><a href={% url 'skills' %}>{{ nav.fourth_menu }}</a></li>
+                    <li><a href={% url 'lastVacancy' %}>{{ nav.fifth_menu }}</a></li>
+                </ul>
+                <p class="author_foot">{{ nav.author|safe }}</p>
+            </nav>
+        </div>
+{% endfor %}
+{% for main in home_info %}
+        <div class="main_text">
+            {{ main.text|safe }}
+            <div class="nothing"></div>
+            <img class="image_home" src="{{ main.photo.url }}"/>
+        </div>
+    </div>
+ {% endfor %}
+</main>
+<footer>
+</footer>
+</body>
+</html>
