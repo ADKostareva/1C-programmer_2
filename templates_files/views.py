@@ -1,4 +1,4 @@
-import re
+
 
 import requests
 from django.shortcuts import render
@@ -8,6 +8,7 @@ from .models import Navigation
 from .models import Demand
 from .models import Geography
 from .models import Skills
+import re
 
 def LastVacancy(request):
     class HHAPI:
@@ -47,7 +48,7 @@ def LastVacancy(request):
             return result_list
 
     hh = HHAPI('1с')
-    vacs = hh.get_data_vacancies('2022-12-16', 10)
+    vacs = hh.get_data_vacancies('2023-01-13', 10)
 
     last_vacancies = LastVacancyModel.objects.all()
     navigation = Navigation.objects.all()
