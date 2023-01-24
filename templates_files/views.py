@@ -1,6 +1,5 @@
 
 
-import requests
 from django.shortcuts import render
 from .models import LastVacancyModel
 from .models import Main
@@ -9,6 +8,7 @@ from .models import Demand
 from .models import Geography
 from .models import Skills
 import re
+import requests
 
 def LastVacancy(request):
     class HHAPI:
